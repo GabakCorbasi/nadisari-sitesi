@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tevkifatlı Fatura Hesaplama — Nadi Sarı Mali Müşavirlik</title>
+  <meta name="description" content="KDV oranı ve tevkifat oranına göre KDV tutarı, tevkifatlı KDV tutarı ve vergiler dahil toplam tutarı hesaplayın.">
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+905330941148">0533 094 11 48</a>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:nadisari.smmm@gmail.com">nadisari.smmm@gmail.com</a>
+      </span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.jpg" alt="Nadi Sarı Mali Müşavirlik logosu" width="46" height="46">
+        <span class="brand-text">
+          <strong>NADİ SARI</strong>
+          <small>Serbest Muhasebeci Mali Müşavir</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Ana menü">
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hizmetler.html">Hizmetler</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="tevkifat-hesaplama.html" class="nav-cta active">Tevkifat Hesapla</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Menüyü aç/kapat">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Konum"><a href="index.html">Ana Sayfa</a> / Tevkifat Hesaplama</nav>
+      <h1>Tevkifatlı Fatura Hesaplama</h1>
+      <p>Fatura tutarını, KDV oranını ve tevkifat oranını girin; hesaplamayı biz yapalım.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-wrap">
+        <div class="calc-field">
+          <label for="faturaTutar">Fatura Tutarı (₺)</label>
+          <input type="number" id="faturaTutar" min="0" step="any" placeholder="Örn. 1000">
+        </div>
+        <div class="calc-field">
+          <label for="kdvOrani">KDV Oranı (%)</label>
+          <input type="number" id="kdvOrani" min="0" max="100" step="any" value="20">
+        </div>
+        <div class="calc-field">
+          <label for="tevkifatOrani">Tevkifat Oranı (%)</label>
+          <input type="number" id="tevkifatOrani" min="0" max="100" step="any" value="40">
+        </div>
+        <button class="btn btn-primary" id="hesaplaBtn" style="width:100%;justify-content:center" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="12" y1="11" x2="12" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/><line x1="8" y1="15" x2="8" y2="15.01"/><line x1="12" y1="15" x2="12" y2="15.01"/><line x1="16" y1="15" x2="16" y2="15.01"/><line x1="8" y1="19" x2="8" y2="19.01"/><line x1="12" y1="19" x2="12" y2="19.01"/><line x1="16" y1="19" x2="16" y2="19.01"/></svg>
+          Hesapla
+        </button>
+
+        <div class="calc-results" id="sonuclar" aria-live="polite">
+          <div class="calc-row">
+            <strong>KDV Tutarı</strong>
+            <span class="val" id="sonuc">—</span>
+          </div>
+          <div class="calc-row">
+            <strong>Tevkifatlı KDV Tutarı</strong>
+            <span class="val" id="sonuc2">—</span>
+          </div>
+          <div class="calc-row total">
+            <strong>Vergiler Dahil Toplam Tutar</strong>
+            <span class="val" id="sonuc3">—</span>
+          </div>
+          <p class="calc-note">
+            Hesaplama bilgilendirme amaçlıdır; fatura kesim öncesi güncel mevzuatı teyit etmenizi öneririz.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/img/logo.jpg" alt="Nadi Sarı Mali Müşavirlik logosu" width="44" height="44">
+          <span><strong>NADİ SARI MALİ MÜŞAVİRLİK</strong><small>Serbest Muhasebeci Mali Müşavir</small></span>
+        </div>
+        <p>Soma/Manisa'da kurumsal firmalardan gelen deneyimle; küçük ve orta ölçekli işletmelere mali müşavirlik ve danışmanlık hizmeti sunuyoruz.</p>
+      </div>
+      <div>
+        <h4>Hızlı Menü</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hizmetler.html">Hizmetler</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="tevkifat-hesaplama.html">Tevkifat Hesaplama</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Kurtuluş Mah. Fatih Caddesi No:8/9,<br>45500 Soma/Manisa</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+905330941148">0533 094 11 48</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:nadisari.smmm@gmail.com">nadisari.smmm@gmail.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Hafta içi 09.00 – 18.00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Nadi Sarı Mali Müşavirlik. Tüm hakları saklıdır.</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nadisari.smmm/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="mailto:nadisari.smmm@gmail.com" aria-label="E-posta" title="E-posta">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var btn = document.getElementById("hesaplaBtn");
+      var results = document.getElementById("sonuclar");
+      var fmt = function (n) {
+        return n.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " ₺";
+      };
+      btn.addEventListener("click", function () {
+        var tutar = parseFloat(document.getElementById("faturaTutar").value.replace(",", "."));
+        var kdv = parseFloat(document.getElementById("kdvOrani").value.replace(",", "."));
+        var tevkifat = parseFloat(document.getElementById("tevkifatOrani").value.replace(",", "."));
+        if (isNaN(tutar) || isNaN(kdv) || isNaN(tevkifat)) {
+          alert("Lütfen tüm alanlara geçerli bir sayı girin.");
+          return;
+        }
+        if (tutar < 0 || kdv < 0 || tevkifat < 0) {
+          alert("Negatif değer girilemez.");
+          return;
+        }
+        var kdvTutari = tutar * (kdv / 100);
+        var tevkifatli = kdvTutari * (tevkifat / 100);
+        var toplam = tutar + kdvTutari;
+        document.getElementById("sonuc").textContent = fmt(kdvTutari);
+        document.getElementById("sonuc2").textContent = fmt(tevkifatli);
+        document.getElementById("sonuc3").textContent = fmt(toplam);
+        results.classList.add("show");
+      });
+    })();
+  </script>
+</body>
+</html>
