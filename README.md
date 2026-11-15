@@ -44,7 +44,10 @@ hazırlanmış tamamen statik (HTML + CSS + JS) bir sitedir.
 
 ## İletişim Bilgileri
 
-- 📍 Kurtuluş Mah. Fatih Caddesi No:8/9, 45500 Soma/Manisa
 - 📞 0533 094 11 48
 - ✉️ nadisari.smmm@gmail.com
 - 🕘 Hafta içi 09.00 – 18.00
+
+> Not: Ofis adresi geçici olarak siteden çıkarılmıştır (güncellenince `index.html`,
+> `iletisim.html` ve tüm sayfa footer'larına yeniden eklenecektir). Harita görseli
+> `assets/img/harita.png` içinde saklı durmaktadır.
